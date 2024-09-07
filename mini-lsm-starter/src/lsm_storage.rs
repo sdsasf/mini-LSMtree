@@ -336,7 +336,7 @@ impl LsmStorageInner {
         let mut isfull = false;
         {
             let guard = self.state.read();
-            guard.memtable.put(_key, b" ")?;
+            guard.memtable.put(_key, b"")?;
             if guard.memtable.approximate_size() >= self.options.target_sst_size {
                 isfull = true;
             }
